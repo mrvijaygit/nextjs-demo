@@ -1,0 +1,15 @@
+const Code = {
+    SUCCESS: 0,
+    FILE_DOWNLOAD_FAILED: 1,
+    VIDEO_INTERVAL_FAILED: 2,
+    BLINK_FAILED: 3,
+    MOVEMENT_FAILED: 4,
+    SPEECH_FAILED: 5,
+    FINGER_COUNT_FAILED: 6,
+    NOT_PROCESSED: 7,
+    FIELD_MISSING: 8
+};
+
+module.exports = {
+    Code
+};
