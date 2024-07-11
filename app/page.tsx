@@ -2,13 +2,35 @@
 
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { remoteConfig, fetchAndActivate, getValue } from '../firebase';
+import globalArray from './utils/constant';
 
 export default function HomePage() {
   const [inputValue, setInputValue] = useState("");
   const [inputError, setInputError] = useState("");
   const router = useRouter();
+
+
+  // useEffect(() => {
+  //   const fetchRemoteConfig = async () => {
+  //     if (!remoteConfig) {
+  //       return;
+  //     }
+
+  //     try {
+  //       await fetchAndActivate(remoteConfig);
+  //       const paramValue = getValue(remoteConfig, 'support_platforms').asString();
+  //       const arrayValue = JSON.parse(paramValue);
+  //       console.log("array value : ", arrayValue);
+  //     } catch (error) {
+  //       console.error('Error fetching remote config:', error);
+  //     }
+  //   };
+
+  //   fetchRemoteConfig();
+  // }, []);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);

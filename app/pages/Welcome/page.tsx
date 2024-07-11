@@ -20,12 +20,20 @@ export default function Third() {
 
         // Generate the zip file
         const zipContent = await zip.generateAsync({ type: "blob" });
+        const currentDate = new Date();
+
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+        const year = currentDate.getFullYear();
+        const time = currentDate.toTimeString().split(' ')[0].replace(/:/g, '-');
+
+        const formattedDate = `${day}-${month}-${year}-${time}`;
 
         // Create a FormData object to send the zip file
         const formData = new FormData();
         formData.append(
           "file",
-          new File([zipContent], "EztoRequirement.zip", {
+          new File([zipContent], `EztoRequirement_${formattedDate}.zip`, {
             type: "application/zip",
           })
         );

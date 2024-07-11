@@ -1,15 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { ChangeEvent, useState } from "react";
-import { useRouter } from "next/navigation";
 import NavigationButtons from "@/app/components/NavigationButton";
 import handlePlatformNext from "@/app/utils/platforms_support";
+import PageHeaderContainer from "./../../components/PageHeader";
+import PageHeadingTitle from "./../../components/PageHeadingTitle";
+import TextFormField from "./../../components/TextFormField";
 
 export default function IosInfo() {
   const [inputValue, setInputValue] = useState("");
   const [inputError, setInputError] = useState("");
-  const router = useRouter();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -60,31 +60,21 @@ export default function IosInfo() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-300">
-      <div
-        className="bg-white p-6 rounded-lg shadow-lg text-left flex flex-col justify-between"
-        style={{ width: "580px", height: "680px" }}
-      >
-        <h1 className="text-xl font-semibold mb-4 text-blue-700 text-center w-full bg-blue-100 p-3">
-        Windows Information
-        </h1>
-        <div className="flex flex-col items-start justify-center flex-grow p-2">
-        <h6 className="mb-1 text-black pb-2 font-medium">
-            What should be App Bundle ID? (eg: io.ezto.verify) *
-          </h6>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={handleInputChange}
-            className="w-full p-2 border mb-4  border-gray-300 rounded-lg text-black"
-          />
-          {inputError && <p className="text-red-500">{inputError}</p>}
-        </div>
-        <NavigationButtons
-          nextLink={nextPageHandler()}
-          onNextClick={handleNextClick}
-        />
+    <PageHeaderContainer>
+      <PageHeadingTitle title="Windows Information" />
+      <div className="flex flex-col items-start justify-center flex-grow p-2 w-full">
+        <TextFormField
+          question="1) What should be App Bundle ID? (eg: io.ezto.verify)"
+          textFromFieldValue={inputValue}
+          textFormFieldOnChange={handleInputChange}
+          isRequired
+        ></TextFormField>
+        {inputError && <p className="text-red-500">{inputError}</p>}
       </div>
-    </div>
+      <NavigationButtons
+        nextLink={nextPageHandler()}
+        onNextClick={handleNextClick}
+      />
+    </PageHeaderContainer>
   );
 }

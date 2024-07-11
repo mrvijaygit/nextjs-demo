@@ -38,13 +38,10 @@ export async function POST(request :any) {
   };
 
   // Bucket name and object name (file path in MinIO)
-  const bucketName = 'subin';
-  const objectName = 'subin/' + file.name;
+  const bucketName = 'eztoverifyapprequirement';
+  const objectName = file.name;
 
   const tempFilePath = path.join(os.tmpdir(), file.name);
-
-  // Read file content as Buffer
-  const fileStream = Fs.createReadStream("/Users/grootan/Goals/demo-app/public/images/app_logo.png")
 
   // Upload file to MinIO
   try {

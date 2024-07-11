@@ -214,7 +214,7 @@ export default function ThemeInfo() {
             </h3>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mb-6">
             <div className="relative">
               <input
                 type="file"
@@ -223,21 +223,21 @@ export default function ThemeInfo() {
               />
               <button
                 type="button"
-                className="px-4 py-2 mb-6 bg-blue-500 text-white rounded-lg text-center"
+                className="px-4 py-2 mb-1 bg-blue-500 text-white rounded-lg text-center"
               >
                 Choose File
               </button>
             </div>
             {AppLogoFileName && (
               <div className="flex items-center space-x-2">
-                <p className="text-black">{AppLogoFileName}</p>
                 {AppLogoImage && (
                   <img
                     src={AppLogoImage}
                     alt="File preview"
-                    className="w-16 h-16 object-cover rounded-lg"
+                    className="w-10 h-10 object-cover rounded-lg"
                   />
                 )}
+                <p className="text-black">{AppLogoFileName}</p>
               </div>
             )}
           </div>
@@ -260,7 +260,7 @@ export default function ThemeInfo() {
             </h3>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 mb-6">
             <div className="relative">
               <input
                 type="file"
@@ -269,21 +269,21 @@ export default function ThemeInfo() {
               />
               <button
                 type="button"
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg text-center"
+                className="px-4 py-2 mb-1 bg-blue-500 text-white rounded-lg text-center"
               >
                 Choose File
               </button>
             </div>
             {AppFullLogoFileName && (
               <div className="flex items-center space-x-2">
-                <p className="text-black">{AppFullLogoFileName}</p>
                 {AppFullLogoImage && (
                   <img
                     src={AppFullLogoImage}
                     alt="File preview"
-                    className="w-16 h-16 object-cover rounded-lg"
+                    className="w-10 h-10 object-cover rounded-lg"
                   />
                 )}
+                <p className="text-black">{AppFullLogoFileName}</p>
               </div>
             )}
           </div>
